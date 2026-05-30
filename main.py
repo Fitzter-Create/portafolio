@@ -6,7 +6,7 @@ from fastapi.responses import HTMLResponse, RedirectResponse
 from fastapi.staticfiles import StaticFiles
 from fastapi.templating import Jinja2Templates
 from itsdangerous import URLSafeTimedSerializer
-from data import portfolio_data
+from data import portfolio_data 
 
 app = FastAPI(title="Mi Portafolio")
 
