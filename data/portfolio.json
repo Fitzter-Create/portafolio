@@ -1,0 +1,129 @@
+{
+  "personal": {
+    "name": "Moises Alejandro Figueroa Arredondo",
+    "title": "Programador Bajo",
+    "email": "josejose@gmail.com",
+    "phone": "+52 555 123 4567",
+    "location": "Cumana Venezuela",
+    "bio": "Desarrollador con IA ",
+    "avatar": "data:image/webp;base64,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",
+    "social": {
+      "github": "https://github.com/tuusuario",
+      "linkedin": "https://linkedin.com/in/tuusuario",
+      "twitter": "https://twitter.com/tuusuario"
+    }
+  },
+  "experience": [],
+  "skills": {
+    "Lenguajes": [
+      "Python",
+      "JavaScript",
+      "TypeScript",
+      "Java",
+      "SQL"
+    ],
+    "Frameworks": [
+      "FastAPI",
+      "React",
+      "Django",
+      "Flask",
+      "Next.js"
+    ],
+    "Herramientas": [
+      "Git",
+      "Docker",
+      "AWS",
+      "PostgreSQL",
+      "MongoDB"
+    ],
+    "Otros": [
+      "CI/CD",
+      "REST APIs",
+      "GraphQL",
+      "Linux",
+      "Scrum"
+    ]
+  },
+  "projects": [
+    {
+      "title": "Biblioteca de Steam",
+      "description": "Plataforma web para gestión de un inventario de juegos con FastAPI y React.",
+      "tech": [
+        "FastAPI",
+        "React",
+        "PostgreSQL",
+        "Docker"
+      ],
+      "url": "https://github.com/tuusuario/proyecto1",
+      "image": "https://placehold.co/600x400/141414/D4AF37?text=Proyecto+1"
+    },
+    {
+      "title": "Chat Unico",
+      "description": "Chat Unico usando fastApy y un chat unico",
+      "tech": [
+        "FastAPI",
+        "TensorFlow",
+        "Redis",
+        "Docker"
+      ],
+      "url": "https://github.com/tuusuario/proyecto2",
+      "image": "https://placehold.co/600x400/141414/D4AF37?text=Proyecto+2"
+    },
+    {
+      "title": "Blog Personal",
+      "description": "Blog con editor Markdown, comentarios y panel admin.",
+      "tech": [
+        "Next.js",
+        "FastAPI",
+        "MongoDB",
+        "Vercel"
+      ],
+      "url": "https://github.com/tuusuario/proyecto3",
+      "image": "https://placehold.co/600x400/141414/D4AF37?text=Proyecto+3"
+    }
+  ],
+  "education": [
+    {
+      "institution": "Iute",
+      "degree": "Ingeniería en Sistemas Computacionales",
+      "period": "2014 - 2018",
+      "description": "Titulación con honores. Enfoque en desarrollo de software y bases de datos."
+    }
+  ],
+  "blog_posts": [
+    {
+      "title": "Introducción a FastAPI",
+      "date": "15 Enero 2024",
+      "summary": "Guía completa para empezar con FastAPI, el moderno framework web para Python.",
+      "tags": [
+        "Python",
+        "FastAPI",
+        "Tutorial"
+      ],
+      "url": "/blog/intro-fastapi"
+    },
+    {
+      "title": "Arquitectura Limpia en Python",
+      "date": "20 Diciembre 2023",
+      "summary": "Cómo aplicar principios de arquitectura limpia en proyectos Python.",
+      "tags": [
+        "Python",
+        "Arquitectura",
+        "Clean Code"
+      ],
+      "url": "/blog/clean-architecture-python"
+    },
+    {
+      "title": "Microservicios con FastAPI y Docker",
+      "date": "10 Noviembre 2023",
+      "summary": "Implementación de microservicios escalables usando FastAPI y contenedores Docker.",
+      "tags": [
+        "FastAPI",
+        "Docker",
+        "Microservicios"
+      ],
+      "url": "/blog/microservicios-fastapi-docker"
+    }
+  ],
+  "admin_password": "admin123"
+}

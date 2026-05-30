@@ -1,0 +1,26 @@
+{% extends "base.html" %}
+{% block title %}Habilidades{% endblock %}
+{% block content %}
+<section class="page-section">
+    <div class="container">
+        <h1 class="section-title">Habilidades Técnicas</h1>
+        <div class="skills-grid">
+            {% for category, skill_list in skills.items() %}
+            <div class="card skill-category">
+                <h2 class="skill-category-title">{{ category }}</h2>
+                <div class="skill-items">
+                    {% for skill in skill_list %}
+                    <div class="skill-item">
+                        <span class="skill-name">{{ skill }}</span>
+                        <div class="skill-bar">
+                            <div class="skill-bar-fill" style="width: {{ range(70, 100) | random }}%"></div>
+                        </div>
+                    </div>
+                    {% endfor %}
+                </div>
+            </div>
+            {% endfor %}
+        </div>
+    </div>
+</section>
+{% endblock %}

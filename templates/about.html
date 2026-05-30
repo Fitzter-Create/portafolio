@@ -1,0 +1,33 @@
+{% extends "base.html" %}
+{% block title %}Sobre mí{% endblock %}
+{% block content %}
+<section class="page-section">
+    <div class="container">
+        <h1 class="section-title">Sobre mí</h1>
+        <div class="about-grid">
+            <div class="about-image">
+                <img src="{{ personal.avatar }}" alt="{{ personal.name }}">
+            </div>
+            <div class="about-info">
+                <h2>{{ personal.name }}</h2>
+                <p class="about-title">{{ personal.title }}</p>
+                <p class="about-bio">{{ personal.bio }}</p>
+                <div class="about-details">
+                    <div class="detail-item">
+                        <i class="fas fa-envelope"></i>
+                        <span>{{ personal.email }}</span>
+                    </div>
+                    <div class="detail-item">
+                        <i class="fas fa-phone"></i>
+                        <span>{{ personal.phone }}</span>
+                    </div>
+                    <div class="detail-item">
+                        <i class="fas fa-map-marker-alt"></i>
+                        <span>{{ personal.location }}</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+{% endblock %}

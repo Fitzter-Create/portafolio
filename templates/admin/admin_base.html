@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{% block title %}Admin{% endblock %} | Panel de Control</title>
+    <link rel="stylesheet" href="/static/css/style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+</head>
+<body class="admin-body">
+    <nav class="navbar admin-nav">
+        <div class="container nav-container">
+            <a href="/admin" class="nav-brand">
+                <span class="brand-dot">◈</span> Panel Admin
+            </a>
+            <ul class="nav-menu" id="navMenu">
+                <li><a href="/admin" class="nav-link">Dashboard</a></li>
+                <li><a href="/admin/personal" class="nav-link">Personal</a></li>
+                <li><a href="/admin/projects" class="nav-link">Proyectos</a></li>
+                <li><a href="/admin/education" class="nav-link">Educación</a></li>
+                <li><a href="/admin/blog" class="nav-link">Blog</a></li>
+                <li><a href="/" class="nav-link" target="_blank"><i class="fas fa-external-link-alt"></i> Ver sitio</a></li>
+                <li><a href="/admin/logout" class="nav-link" style="color:#cc4444;"><i class="fas fa-sign-out-alt"></i> Salir</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <main class="main-content">
+        <div class="container" style="padding-top:30px;">
+            {% if request.query_params.get("success") %}
+            <div class="admin-alert admin-alert-success">
+                <i class="fas fa-check-circle"></i> Guardado correctamente.
+            </div>
+            {% endif %}
+            {% if request.query_params.get("error") %}
+            <div class="admin-alert admin-alert-error">
+                <i class="fas fa-exclamation-circle"></i> {{ request.query_params.get("error") }}
+            </div>
+            {% endif %}
+            {% block content %}{% endblock %}
+        </div>
+    </main>
+
+    <script>
+        document.getElementById('navToggle')?.addEventListener('click', function() {
+            document.getElementById('navMenu').classList.toggle('active');
+        });
+    </script>
+</body>
+</html>

@@ -1,0 +1,45 @@
+{% extends "admin/admin_base.html" %}
+{% block title %}Dashboard{% endblock %}
+{% block content %}
+<div class="admin-dashboard">
+    <h1 class="section-title">Dashboard</h1>
+
+    <div class="stats-grid">
+        <div class="card stat-card">
+            <div class="stat-icon"><i class="fas fa-user"></i></div>
+            <div class="stat-info">
+                <h3>{{ personal.name }}</h3>
+                <p>{{ personal.title }}</p>
+            </div>
+            <a href="/admin/personal" class="stat-link">Editar <i class="fas fa-arrow-right"></i></a>
+        </div>
+
+        <div class="card stat-card">
+            <div class="stat-icon"><i class="fas fa-folder-open"></i></div>
+            <div class="stat-info">
+                <h3>{{ projects_count }}</h3>
+                <p>Proyectos</p>
+            </div>
+            <a href="/admin/projects" class="stat-link">Gestionar <i class="fas fa-arrow-right"></i></a>
+        </div>
+
+        <div class="card stat-card">
+            <div class="stat-icon"><i class="fas fa-graduation-cap"></i></div>
+            <div class="stat-info">
+                <h3>{{ education_count }}</h3>
+                <p>Educaciones</p>
+            </div>
+            <a href="/admin/education" class="stat-link">Gestionar <i class="fas fa-arrow-right"></i></a>
+        </div>
+
+        <div class="card stat-card">
+            <div class="stat-icon"><i class="fas fa-blog"></i></div>
+            <div class="stat-info">
+                <h3>{{ blog_count }}</h3>
+                <p>Artículos de blog</p>
+            </div>
+            <a href="/admin/blog" class="stat-link">Gestionar <i class="fas fa-arrow-right"></i></a>
+        </div>
+    </div>
+</div>
+{% endblock %}

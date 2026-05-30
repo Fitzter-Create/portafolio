@@ -1,0 +1,24 @@
+{% extends "base.html" %}
+{% block title %}Educación{% endblock %}
+{% block content %}
+<section class="page-section">
+    <div class="container">
+        <h1 class="section-title">Educación</h1>
+        <div class="timeline">
+            {% for edu in education %}
+            <div class="timeline-item">
+                <div class="timeline-dot"></div>
+                <div class="timeline-content card">
+                    <div class="timeline-header">
+                        <h3>{{ edu.degree }}</h3>
+                        <span class="timeline-period">{{ edu.period }}</span>
+                    </div>
+                    <h4 class="timeline-company">{{ edu.institution }}</h4>
+                    <p>{{ edu.description }}</p>
+                </div>
+            </div>
+            {% endfor %}
+        </div>
+    </div>
+</section>
+{% endblock %}

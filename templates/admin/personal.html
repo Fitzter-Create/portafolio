@@ -1,0 +1,57 @@
+{% extends "admin/admin_base.html" %}
+{% block title %}Información Personal{% endblock %}
+{% block content %}
+<div class="admin-section">
+    <h1 class="section-title">Información Personal</h1>
+    <div class="card admin-form-card">
+        <form method="post" action="/admin/personal" class="admin-form">
+            <div class="form-grid">
+                <div class="form-group">
+                    <label for="name">Nombre completo</label>
+                    <input type="text" id="name" name="name" class="form-input" value="{{ personal.name }}" required>
+                </div>
+                <div class="form-group">
+                    <label for="title">Título / Profesión</label>
+                    <input type="text" id="title" name="title" class="form-input" value="{{ personal.title }}" required>
+                </div>
+                <div class="form-group">
+                    <label for="email">Email</label>
+                    <input type="email" id="email" name="email" class="form-input" value="{{ personal.email }}" required>
+                </div>
+                <div class="form-group">
+                    <label for="phone">Teléfono</label>
+                    <input type="text" id="phone" name="phone" class="form-input" value="{{ personal.phone }}" required>
+                </div>
+                <div class="form-group">
+                    <label for="location">Ubicación</label>
+                    <input type="text" id="location" name="location" class="form-input" value="{{ personal.location }}" required>
+                </div>
+                <div class="form-group">
+                    <label for="avatar">URL del avatar</label>
+                    <input type="url" id="avatar" name="avatar" class="form-input" value="{{ personal.avatar }}">
+                </div>
+            </div>
+            <div class="form-group">
+                <label for="bio">Biografía</label>
+                <textarea id="bio" name="bio" class="form-input form-textarea" rows="5" required>{{ personal.bio }}</textarea>
+            </div>
+            <h3 class="form-section-title">Redes Sociales</h3>
+            <div class="form-grid">
+                <div class="form-group">
+                    <label for="github">GitHub URL</label>
+                    <input type="url" id="github" name="github" class="form-input" value="{{ personal.social.github }}">
+                </div>
+                <div class="form-group">
+                    <label for="linkedin">LinkedIn URL</label>
+                    <input type="url" id="linkedin" name="linkedin" class="form-input" value="{{ personal.social.linkedin }}">
+                </div>
+                <div class="form-group">
+                    <label for="twitter">Twitter / X URL</label>
+                    <input type="url" id="twitter" name="twitter" class="form-input" value="{{ personal.social.twitter }}">
+                </div>
+            </div>
+            <button type="submit" class="btn btn-primary form-btn">Guardar cambios</button>
+        </form>
+    </div>
+</div>
+{% endblock %}

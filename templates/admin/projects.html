@@ -1,0 +1,70 @@
+{% extends "admin/admin_base.html" %}
+{% block title %}Proyectos{% endblock %}
+{% block content %}
+<div class="admin-section">
+    <h1 class="section-title">Proyectos</h1>
+
+    <div class="card admin-form-card">
+        <h2 class="admin-subtitle">Agregar nuevo proyecto</h2>
+        <form method="post" action="/admin/projects/add" class="admin-form">
+            <div class="form-grid">
+                <div class="form-group">
+                    <label for="title">Título</label>
+                    <input type="text" id="title" name="title" class="form-input" required>
+                </div>
+                <div class="form-group">
+                    <label for="tech">Tecnologías (separadas por coma)</label>
+                    <input type="text" id="tech" name="tech" class="form-input" placeholder="Ej: FastAPI, React, PostgreSQL" required>
+                </div>
+                <div class="form-group">
+                    <label for="url">URL del repositorio</label>
+                    <input type="url" id="url" name="url" class="form-input">
+                </div>
+                <div class="form-group">
+                    <label for="image">URL de imagen (opcional)</label>
+                    <input type="url" id="image" name="image" class="form-input" placeholder="Se generará automáticamente si se deja vacío">
+                </div>
+            </div>
+            <div class="form-group">
+                <label for="description">Descripción</label>
+                <textarea id="description" name="description" class="form-input form-textarea" rows="3" required></textarea>
+            </div>
+            <button type="submit" class="btn btn-primary">Agregar</button>
+        </form>
+    </div>
+
+    <h2 class="admin-subtitle">Proyectos actuales</h2>
+    {% for item in projects %}
+    <div class="card admin-item-card">
+        <form method="post" action="/admin/projects/edit/{{ loop.index0 }}" class="admin-form">
+            <div class="form-grid">
+                <div class="form-group">
+                    <label>Título</label>
+                    <input type="text" name="title" class="form-input" value="{{ item.title }}" required>
+                </div>
+                <div class="form-group">
+                    <label>Tecnologías</label>
+                    <input type="text" name="tech" class="form-input" value="{{ item.tech | join(', ') }}" required>
+                </div>
+                <div class="form-group">
+                    <label>URL</label>
+                    <input type="url" name="url" class="form-input" value="{{ item.url }}">
+                </div>
+                <div class="form-group">
+                    <label>Imagen URL</label>
+                    <input type="url" name="image" class="form-input" value="{{ item.image }}">
+                </div>
+            </div>
+            <div class="form-group">
+                <label>Descripción</label>
+                <textarea name="description" class="form-input form-textarea" rows="2" required>{{ item.description }}</textarea>
+            </div>
+            <div class="admin-item-actions">
+                <button type="submit" class="btn btn-primary" style="padding:8px 16px;font-size:0.85rem;">Guardar</button>
+                <button type="submit" formaction="/admin/projects/delete/{{ loop.index0 }}" class="btn btn-danger" style="padding:8px 16px;font-size:0.85rem;" onclick="return confirm('¿Eliminar este proyecto?')">Eliminar</button>
+            </div>
+        </form>
+    </div>
+    {% endfor %}
+</div>
+{% endblock %}

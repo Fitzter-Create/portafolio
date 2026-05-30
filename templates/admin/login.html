@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin Login | Panel de Control</title>
+    <link rel="stylesheet" href="/static/css/style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+</head>
+<body class="admin-body">
+    <div class="login-container">
+        <div class="login-card card">
+            <div class="login-header">
+                <span class="brand-dot" style="font-size:2rem;">◈</span>
+                <h1>Panel de Administración</h1>
+                <p>Ingresa tu contraseña para acceder</p>
+            </div>
+            {% if error %}
+            <div class="admin-alert admin-alert-error">
+                <i class="fas fa-exclamation-circle"></i> {{ error }}
+            </div>
+            {% endif %}
+            <form method="post" action="/admin/login" class="admin-form">
+                <div class="form-group">
+                    <label for="password">Contraseña</label>
+                    <input type="password" id="password" name="password" class="form-input" required placeholder="Ingresa tu contraseña">
+                </div>
+                <button type="submit" class="btn btn-primary form-btn">Ingresar</button>
+            </form>
+            <div class="login-footer">
+                <a href="/" class="footer-link"><i class="fas fa-arrow-left"></i> Volver al inicio</a>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

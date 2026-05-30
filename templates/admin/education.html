@@ -1,0 +1,62 @@
+{% extends "admin/admin_base.html" %}
+{% block title %}Educación{% endblock %}
+{% block content %}
+<div class="admin-section">
+    <h1 class="section-title">Educación</h1>
+
+    <div class="card admin-form-card">
+        <h2 class="admin-subtitle">Agregar nueva educación</h2>
+        <form method="post" action="/admin/education/add" class="admin-form">
+            <div class="form-grid">
+                <div class="form-group">
+                    <label for="institution">Institución</label>
+                    <input type="text" id="institution" name="institution" class="form-input" required>
+                </div>
+                <div class="form-group">
+                    <label for="degree">Título / Grado</label>
+                    <input type="text" id="degree" name="degree" class="form-input" required>
+                </div>
+                <div class="form-group">
+                    <label for="period">Período</label>
+                    <input type="text" id="period" name="period" class="form-input" placeholder="Ej: 2014 - 2018" required>
+                </div>
+            </div>
+            <div class="form-group">
+                <label for="description">Descripción</label>
+                <textarea id="description" name="description" class="form-input form-textarea" rows="3" required></textarea>
+            </div>
+            <button type="submit" class="btn btn-primary">Agregar</button>
+        </form>
+    </div>
+
+    <h2 class="admin-subtitle">Educaciones actuales</h2>
+    {% for item in education %}
+    <div class="card admin-item-card">
+        <form method="post" action="/admin/education/edit/{{ loop.index0 }}" class="admin-form">
+            <div class="form-grid">
+                <div class="form-group">
+                    <label>Institución</label>
+                    <input type="text" name="institution" class="form-input" value="{{ item.institution }}" required>
+                </div>
+                <div class="form-group">
+                    <label>Título</label>
+                    <input type="text" name="degree" class="form-input" value="{{ item.degree }}" required>
+                </div>
+                <div class="form-group">
+                    <label>Período</label>
+                    <input type="text" name="period" class="form-input" value="{{ item.period }}" required>
+                </div>
+            </div>
+            <div class="form-group">
+                <label>Descripción</label>
+                <textarea name="description" class="form-input form-textarea" rows="2" required>{{ item.description }}</textarea>
+            </div>
+            <div class="admin-item-actions">
+                <button type="submit" class="btn btn-primary" style="padding:8px 16px;font-size:0.85rem;">Guardar</button>
+                <button type="submit" formaction="/admin/education/delete/{{ loop.index0 }}" class="btn btn-danger" style="padding:8px 16px;font-size:0.85rem;" onclick="return confirm('¿Eliminar esta educación?')">Eliminar</button>
+            </div>
+        </form>
+    </div>
+    {% endfor %}
+</div>
+{% endblock %}

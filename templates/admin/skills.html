@@ -1,0 +1,17 @@
+{% extends "admin/admin_base.html" %}
+{% block title %}Habilidades{% endblock %}
+{% block content %}
+<div class="admin-section">
+    <h1 class="section-title">Habilidades Técnicas</h1>
+    <div class="card admin-form-card">
+        <p style="color:#999;margin-bottom:15px;">Edita las habilidades en formato JSON. Cada categoría contiene una lista de habilidades.</p>
+        <form method="post" action="/admin/skills" class="admin-form">
+            <div class="form-group">
+                <label for="skills_json">Skills (JSON)</label>
+                <textarea id="skills_json" name="skills_json" class="form-input form-textarea form-textarea-code" rows="20" required>{{ skills | tojson(indent=2) }}</textarea>
+            </div>
+            <button type="submit" class="btn btn-primary form-btn">Guardar habilidades</button>
+        </form>
+    </div>
+</div>
+{% endblock %}

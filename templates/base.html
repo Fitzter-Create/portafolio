@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{% block title %}Mi Portafolio{% endblock %} | {{ personal.name }}</title>
+    <link rel="stylesheet" href="/static/css/style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+</head>
+<body>
+    <nav class="navbar">
+        <div class="container nav-container">
+            <a href="/" class="nav-brand">
+                <span class="brand-dot">◈</span> {{ personal.name }}
+            </a>
+            <button class="nav-toggle" id="navToggle" aria-label="Menú">
+                <span></span><span></span><span></span>
+            </button>
+            <ul class="nav-menu" id="navMenu">
+                <li><a href="/" class="nav-link">Inicio</a></li>
+                <li><a href="/about" class="nav-link">Sobre mí</a></li>
+                <li><a href="/projects" class="nav-link">Proyectos</a></li>
+                <li><a href="/education" class="nav-link">Educación</a></li>
+                <li><a href="/blog" class="nav-link">Blog</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <main class="main-content">
+        {% block content %}{% endblock %}
+    </main>
+
+    <a href="/admin/login" class="admin-float-btn" title="Configurar portafolio">
+        <i class="fas fa-cog"></i>
+    </a>
+
+    <footer class="footer">
+        <div class="container footer-content">
+            <p>&copy; 2024 {{ personal.name }}. Todos los derechos reservados.</p>
+            <div class="footer-links">
+                {% if personal.social.github %}
+                <a href="{{ personal.social.github }}" target="_blank" rel="noopener" class="footer-link">
+                    <i class="fab fa-github"></i>
+                </a>
+                {% endif %}
+                {% if personal.social.linkedin %}
+                <a href="{{ personal.social.linkedin }}" target="_blank" rel="noopener" class="footer-link">
+                    <i class="fab fa-linkedin-in"></i>
+                </a>
+                {% endif %}
+                {% if personal.social.twitter %}
+                <a href="{{ personal.social.twitter }}" target="_blank" rel="noopener" class="footer-link">
+                    <i class="fab fa-x-twitter"></i>
+                </a>
+                {% endif %}
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        document.getElementById('navToggle')?.addEventListener('click', function() {
+            document.getElementById('navMenu').classList.toggle('active');
+        });
+    </script>
+</body>
+</html>

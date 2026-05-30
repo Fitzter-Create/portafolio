@@ -1,0 +1,24 @@
+{% extends "base.html" %}
+{% block title %}Experiencia{% endblock %}
+{% block content %}
+<section class="page-section">
+    <div class="container">
+        <h1 class="section-title">Experiencia Laboral</h1>
+        <div class="timeline">
+            {% for job in experience %}
+            <div class="timeline-item">
+                <div class="timeline-dot"></div>
+                <div class="timeline-content card">
+                    <div class="timeline-header">
+                        <h3>{{ job.position }}</h3>
+                        <span class="timeline-period">{{ job.period }}</span>
+                    </div>
+                    <h4 class="timeline-company">{{ job.company }}</h4>
+                    <p>{{ job.description }}</p>
+                </div>
+            </div>
+            {% endfor %}
+        </div>
+    </div>
+</section>
+{% endblock %}

@@ -1,0 +1,70 @@
+{% extends "admin/admin_base.html" %}
+{% block title %}Blog{% endblock %}
+{% block content %}
+<div class="admin-section">
+    <h1 class="section-title">Blog / Artículos</h1>
+
+    <div class="card admin-form-card">
+        <h2 class="admin-subtitle">Agregar nuevo artículo</h2>
+        <form method="post" action="/admin/blog/add" class="admin-form">
+            <div class="form-grid">
+                <div class="form-group">
+                    <label for="title">Título</label>
+                    <input type="text" id="title" name="title" class="form-input" required>
+                </div>
+                <div class="form-group">
+                    <label for="date">Fecha</label>
+                    <input type="text" id="date" name="date" class="form-input" placeholder="Ej: 15 Enero 2024" required>
+                </div>
+                <div class="form-group">
+                    <label for="tags">Tags (separados por coma)</label>
+                    <input type="text" id="tags" name="tags" class="form-input" placeholder="Ej: Python, FastAPI, Tutorial" required>
+                </div>
+                <div class="form-group">
+                    <label for="url">URL del artículo</label>
+                    <input type="text" id="url" name="url" class="form-input" placeholder="Se generará automáticamente si se deja vacío">
+                </div>
+            </div>
+            <div class="form-group">
+                <label for="summary">Resumen</label>
+                <textarea id="summary" name="summary" class="form-input form-textarea" rows="3" required></textarea>
+            </div>
+            <button type="submit" class="btn btn-primary">Agregar</button>
+        </form>
+    </div>
+
+    <h2 class="admin-subtitle">Artículos actuales</h2>
+    {% for item in blog_posts %}
+    <div class="card admin-item-card">
+        <form method="post" action="/admin/blog/edit/{{ loop.index0 }}" class="admin-form">
+            <div class="form-grid">
+                <div class="form-group">
+                    <label>Título</label>
+                    <input type="text" name="title" class="form-input" value="{{ item.title }}" required>
+                </div>
+                <div class="form-group">
+                    <label>Fecha</label>
+                    <input type="text" name="date" class="form-input" value="{{ item.date }}" required>
+                </div>
+                <div class="form-group">
+                    <label>Tags</label>
+                    <input type="text" name="tags" class="form-input" value="{{ item.tags | join(', ') }}" required>
+                </div>
+                <div class="form-group">
+                    <label>URL</label>
+                    <input type="text" name="url" class="form-input" value="{{ item.url }}">
+                </div>
+            </div>
+            <div class="form-group">
+                <label>Resumen</label>
+                <textarea name="summary" class="form-input form-textarea" rows="2" required>{{ item.summary }}</textarea>
+            </div>
+            <div class="admin-item-actions">
+                <button type="submit" class="btn btn-primary" style="padding:8px 16px;font-size:0.85rem;">Guardar</button>
+                <button type="submit" formaction="/admin/blog/delete/{{ loop.index0 }}" class="btn btn-danger" style="padding:8px 16px;font-size:0.85rem;" onclick="return confirm('¿Eliminar este artículo?')">Eliminar</button>
+            </div>
+        </form>
+    </div>
+    {% endfor %}
+</div>
+{% endblock %}
