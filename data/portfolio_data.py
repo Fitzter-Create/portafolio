@@ -8,14 +8,15 @@ from data.database import (
     check_password, change_password,
 )
 
-init_db()
+_loaded = False
 
-personal = get_personal()
-experience = get_experience()
-skills = get_skills()
-projects = get_projects()
-education = get_education()
-blog_posts = get_blog_posts()
+
+def _ensure_loaded():
+    global _loaded
+    if not _loaded:
+        init_db()
+        reload()
+        _loaded = True
 
 
 _on_reload_callbacks = []
@@ -26,15 +27,25 @@ def on_reload(callback):
 
 
 def reload():
-    global personal, experience, skills, projects, education, blog_posts
-    personal = get_personal()
-    experience = get_experience()
-    skills = get_skills()
-    projects = get_projects()
-    education = get_education()
-    blog_posts = get_blog_posts()
+    _data_store["personal"] = get_personal()
+    _data_store["experience"] = get_experience()
+    _data_store["skills"] = get_skills()
+    _data_store["projects"] = get_projects()
+    _data_store["education"] = get_education()
+    _data_store["blog_posts"] = get_blog_posts()
     for cb in _on_reload_callbacks:
         cb()
+
+
+_data_store = {}
+_DATA_KEYS = {"personal", "experience", "skills", "projects", "education", "blog_posts"}
+
+
+def __getattr__(name):
+    if name in _DATA_KEYS:
+        _ensure_loaded()
+        return _data_store[name]
+    raise AttributeError(f"module {__name__!r} has no attribute {name!r}")
 
 
 def save_personal(data):
